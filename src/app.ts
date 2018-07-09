@@ -1,14 +1,9 @@
-const pizzas = [
-  { name: 'Pepperoni', toppings: ['pepperoni']}
-]
+function sumAll(message : string, ...arr : number[]) {
+  console.log(arguments)
 
-const mappedPizzas = pizzas.map(pizza => pizza.name.toUpperCase())
-
-console.log(mappedPizzas)
-
-const pizza = {
-  name: 'Blazing Inferno',
-  getName: () => pizza.name
+  return arr.reduce((prev, next) => prev + next)
 }
 
-console.log(pizza.getName())
+const sum = sumAll('hello', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+console.log(sum)
