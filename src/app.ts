@@ -1,11 +1,9 @@
-let coupon: string | null = 'pizza25'
+let pizzaSize: number = 1
 
-function removeCoupon(): void {
-  coupon = null
+function selectSize(size: 1 | 2 | 3): void {
+  pizzaSize = size
 }
 
-console.log(coupon)
+selectSize(2)
 
-removeCoupon()
-
-console.log(coupon)
+console.log(`Pizza size: ${pizzaSize}`)
