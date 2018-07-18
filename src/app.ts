@@ -1,5 +1,9 @@
-let coupon: any;
+let selectedTopping: string = 'pepperoni'
 
-coupon = 12
-coupon = 'hello'
-coupon = false
+function selectTopping(topping: string) {
+  selectedTopping = topping
+}
+
+selectTopping('bacon')
+
+console.log(selectedTopping)
