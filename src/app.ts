@@ -1,7 +1,11 @@
-const toppings = ['bacon', 'chilli']
+const pizza =  {
+  name: 'Pepperoni',
+  toppings: ['pepperoni'],
+}
 
-const newToppings = ['pepperoni']
 
-const allToppings = [...newToppings, ...toppings]
+function order({ name: pizzaName, toppings: pizzaToppings}: any) {
+  console.log(pizzaName, pizzaToppings)
+}
 
-console.log(allToppings)
+order(pizza)
