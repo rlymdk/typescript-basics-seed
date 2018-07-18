@@ -1,11 +1,10 @@
-const pizza =  {
-  name: 'Pepperoni',
-  toppings: ['pepperoni'],
+const pizzaCost: number = 10
+const pizzaToppings: number = 2
+
+function calculatePrice(cost: number, toppings: number): number {
+  return cost + 1.5 * toppings
 }
 
+const cost: number = calculatePrice(pizzaCost, pizzaToppings)
 
-function order({ name: pizzaName, toppings: pizzaToppings}: any) {
-  console.log(pizzaName, pizzaToppings)
-}
-
-order(pizza)
+console.log(`Pizza consts: ${cost}`)
