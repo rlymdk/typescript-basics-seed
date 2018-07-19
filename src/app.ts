@@ -1,10 +1,12 @@
-interface Pizza {
-  name : string
+interface Sizes {
   sizes : string[]
-  getAvailableSizes(): string[]  
 }
 
-type getAvailableSizes = () => string[]
+interface Pizza extends Sizes {
+  name : string
+  toppings?: number
+  getAvailableSizes(): string[]  
+}
 
 let pizza: Pizza
 
@@ -19,3 +21,5 @@ function createPizza(name: string, sizes: string[]): Pizza {
 }
 
 pizza = createPizza('Pepperoni', ['small', 'medium'])
+
+pizza.toppings = 1
