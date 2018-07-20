@@ -1,5 +1,9 @@
-class Sizes {
-  constructor(public sizes: string[]) {}
+interface SizesInterface {
+  availableSizes: string[]
+}
+
+abstract class Sizes implements SizesInterface {
+  constructor(protected sizes: string[]) {}
 
   set availableSizes(sizes: string[]) {
     this.sizes = sizes
@@ -10,18 +14,32 @@ class Sizes {
   }
 }
 
-class Pizza extends Sizes {
-  toppings: string[] = []
+interface PizzaInterface extends SizesInterface {
+  readonly name: string
+  toppings: string[]
+  updateSizes(sizes: string[]): void
+  addTopping(topping: string): void
+}
 
-  constructor(readonly name: string, public sizes: string[]) {
+class Pizza extends Sizes implements PizzaInterface {
+  public toppings: string[] = []
+
+  constructor(readonly name: string, sizes: string[]) {
     super(sizes)
   }
 
-  addTopping(topping: string) {
+  public updateSizes(sizes: string[]) {
+    this.sizes = sizes
+  }
+
+  public addTopping(topping: string) {
     this.toppings.push(topping)
   }
 }
 
 const pizza = new Pizza('Pepperoni', ['small', 'medium'])
 console.log(pizza.availableSizes)
-pizza.addTopping('pepperoni')
+
+pizza.updateSizes(['large'])
+
+console.log(pizza.availableSizes)
